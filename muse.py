@@ -2,7 +2,7 @@ import os
 import subprocess
 from mutagen.easyid3 import EasyID3
 from mutagen.mp3 import MP3
-mp3DirName = "C:/Users/devon/Desktop/Google Play Upload/mp3"
+mp3DirName = "path/to/your/music/directory"
 
 #print(EasyID3.valid_keys.keys())
 
@@ -25,9 +25,3 @@ for root, dirs, files in os.walk(mp3DirName, topdown=True):
         audio["album"] = "{} - Single".format("".join(audio["title"]))
         print("{} has been renamed to {} - Single".format(audio["album"], audio["title"]))
         audio.save()
-
-# open Google Play Music to upload
-print('Opening Google Play Music for upload')
-subprocess.Popen(["C:/Users/devon/AppData/Local/Programs/Google/MusicManager/MusicManager.exe"])
-print("Google Play opened and it'll take it from here.")
-exit 0
